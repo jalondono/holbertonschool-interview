@@ -8,13 +8,12 @@ def canUnlockAll(boxes):
     number_boxes = len(boxes)
     box_idx = 0
     finish_open = 0
+
     while finish_open == 0:
         flag_go_back = True
         if len(boxes[box_idx]) > 0:
             for key in boxes[box_idx]:
                 if box_idx not in opened_boxes:
-                    """Sino esta creado el campo, 
-                    lo crea con una lista vaci"""
                     opened_boxes[box_idx] = []
                 if key in opened_boxes[box_idx]:
                     continue
