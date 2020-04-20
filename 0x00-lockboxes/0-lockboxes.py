@@ -8,7 +8,6 @@ def canUnlockAll(boxes):
     number_boxes = len(boxes)
     box_idx = 0
     finish_open = 0
-    last_index = 0
     while finish_open == 0:
         flag_go_back = True
         if len(boxes[box_idx]) > 0:
@@ -28,12 +27,10 @@ def canUnlockAll(boxes):
                     opened_boxes[box_idx].append(key)
                     flag_go_back = False
                 else:
-                    last_index = box_idx
                     opened_boxes[box_idx].append(key)
                     box_idx = key
                     flag_go_back = False
                     break
-        # box_idx += 1
         if flag_go_back:
             re_check = False
             for key, value in opened_boxes.items():
