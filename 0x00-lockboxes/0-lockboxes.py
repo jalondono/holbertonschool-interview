@@ -20,7 +20,9 @@ def canUnlockAll(boxes):
                 """Recorrer los indices de las sublistas"""
                 if key > number_boxes:
                     """si una key esta fuera de rango"""
-                    return False
+                    opened_boxes[box_idx].append(key)
+                    flag_go_back = False
+                    continue
                 if len(boxes[key]) == 0:
                     """si una caja esta nula, marquela como abierta"""
                     opened_boxes[key] = []
@@ -31,7 +33,10 @@ def canUnlockAll(boxes):
                     box_idx = key
                     flag_go_back = False
                     break
+        if len(opened_boxes) >= number_boxes:
+            return True
         if flag_go_back:
+            count = 0
             re_check = False
             for key, value in opened_boxes.items():
                 if len(boxes[key]) != len(value):
@@ -39,14 +44,18 @@ def canUnlockAll(boxes):
                     break
                 else:
                     for element in value:
-                        if len(boxes[element]) != len(opened_boxes[element]):
-                            box_idx = element
-                            re_check = True
-                            break
-                        else:
-                            continue
+                        if element < len(boxes):
+                            if len(boxes[element]) != len(opened_boxes[element]):
+                                """Revisa la lista del indice que la lista actual
+                                , sea igual a las que ya se han guardado en el diccionario"""
+                                box_idx = element
+                                re_check = True
+                                break
+                            else:
+                                continue
                     if re_check:
                         break
-                return False
-        if len(opened_boxes) >= number_boxes:
-            return True
+                count += 1
+                if count == len(opened_boxes) - 1:
+                    """Si termina de revisar todas las cajas y falntan"""
+                    return False
