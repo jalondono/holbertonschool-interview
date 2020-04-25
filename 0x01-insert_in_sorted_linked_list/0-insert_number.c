@@ -3,7 +3,7 @@
 /**
  * insert_node - inser a new node ina sorted list
  * @head: head of the list
- * @number: value to the new node
+ * @number: number to the new node
  * Return: pointer to the new node
  */
 
@@ -11,12 +11,11 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 	listint_t *copy_head = *head;
 	listint_t *new_node;
-	int value = number;
 
 	new_node = malloc(sizeof(listint_t));
 	if (new_node == NULL)
 		return (NULL);
-	new_node->n = value;
+	new_node->n = number;
 	new_node->next = NULL;
 
 
@@ -33,7 +32,7 @@ listint_t *insert_node(listint_t **head, int number)
 		return (new_node);
 	}
 
-	while (copy_head->next->n < value && (copy_head->next != NULL))
+	while (copy_head->next->n < number && (copy_head->next != NULL))
 	{
 		copy_head = copy_head->next;
 	}
