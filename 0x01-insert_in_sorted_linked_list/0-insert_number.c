@@ -1,49 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * insert_node - inserts a number into a sorted singly linked list listint
- * @head: pointer to head of list
- * @number: number to be inserted
- * Return: number of nodes
+ * insert_node - inser a new node ina sorted list
+ * @head: head of the list
+ * @number: number to the new node
+ * Return: pointer to the new node
  */
+
 listint_t *insert_node(listint_t **head, int number)
-{
-	listint_t *new;
-	listint_t *current;
+	{
+	listint_t *copy_head = *head;
+	listint_t *new_node;
 
-	current = *head;
-
-/* 0. create new node */
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
 		return (NULL);
-	new->n = number;
-	new->next = NULL;
+	new_node->n = number;
+	new_node->next = NULL;
 
-/* 1a. *head == NULL*/
+
 	if (*head == NULL)
 	{
-		*head = new;
-		return (new);
+		*head = new_node;
+		return (new_node);
 	}
 
-
-/* 1a.node at the beginning */
-	if (number < current->n)
+	if (number < copy_head->n)
 	{
-		new->next = (*head);
-		*head = new;
-		return (new);
+		new_node->next = (*head);
+		*head = new_node;
+		return (new_node);
 	}
 
-/* 2. node at the middle or end*/
-	while ((current->next != NULL) && (current->next->n < number))
-		current = current->next;
-
-	new->next = current->next;
-	current->next = new;
-
-	return (new);
-}
+	while ((copy_head->next->n < number) && (copy_head->next != NULL))
+	{
+		copy_head = copy_head->next;
+	}
+	new_node->next = copy_head->next;
+	copy_head->next = new_node;
+	return (new_node);
+	}
