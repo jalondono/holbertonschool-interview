@@ -4,11 +4,8 @@ Minimum Operations
 """
 
 
-def copy(word):
-    return word
-
-
 def paste(word, last_word):
+    """concatenate to strings"""
     return word + last_word
 
 
@@ -17,7 +14,7 @@ def minOperations(n):
     calculates the fewest number of operations
     needed to result in exactly n H characters
     :param n: Given a number n
-    :return: 
+    :return:
     """
     operations = 0
     len_list = 1
