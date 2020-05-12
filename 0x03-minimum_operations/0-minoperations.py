@@ -2,11 +2,7 @@
 """
 Minimum Operations
 """
-
-
-def paste(word, last_word):
-    """concatenate to strings"""
-    return word + last_word
+# import time
 
 
 def minOperations(n):
@@ -17,24 +13,18 @@ def minOperations(n):
     :return:
     """
     operations = 0
-    len_list = 1
-    word = 'H'
-    last_word = 'H'
+    value = 1
+    last_value = 1
 
-    if n <= 0:
-        return 0
-
-    while n > len_list:
-
-        if n % len_list != 0:
-            word = paste(word, last_word)
+    # t0 = time.time()
+    while n > value:
+        if n % value != 0:
+            value += last_value
             operations += 1
         else:
-            last_word = word
-            word = paste(word, last_word)
+            last_value = value
+            value += last_value
             operations += 2
-
-        len_list = len(word)
-    if n == len_list:
-        return operations
-    return 0
+    # t1 = time.time()
+    # print(t1 - t0)
+    return operations
