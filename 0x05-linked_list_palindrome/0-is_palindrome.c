@@ -11,12 +11,10 @@ int is_palindrome(listint_t **head)
 	int idx = 0;
 	int k = 0;
 	listint_t *copy_head = *head;
-	int *array = NULL;
+	int array[99999];
 
 	if (*head == NULL)
 		return (1);
-
-	array = malloc(sizeof(int) * 1024);
 	copy_head = *head;
 
 	for (idx = 0; copy_head != NULL; idx++)
