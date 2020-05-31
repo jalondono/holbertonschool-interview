@@ -34,9 +34,9 @@ try:
 
             if count >= 9:
                 print("File size: {:d}".format(size))
-                for key in sorted(data.keys()):
+                for key, value in data.items():
                     if data[key] != 0:
-                        print("{}: {:d}".format(key, data[key]))
+                        print("{}: {:d}".format(key, value))
                 count = 0
             else:
                 count += 1
@@ -44,9 +44,9 @@ except Exception:
     pass
 finally:
     print("File size: {:d}".format(size))
-    for key in sorted(data.keys()):
+    for key, value in data.items():
         if data[key] != 0:
-            print("{}: {:d}".format(key, data[key]))
+            print("{}: {:d}".format(key, value))
 
 # if __name__ == '__main__':
 #     main()
