@@ -22,30 +22,31 @@ size = 0
 try:
     for line in sys.stdin:
         response = line.split(' ')[-2:]
-        status = response[0]
-        size += int(response[1][:-1])
+        if len(response) >= 2:
+            status = response[0]
+            size += int(response[1][:-1])
 
-        # if status not in data:
-        #     data[status] = 1
-        # else:
-        #     data[status] += 1
-        data[status] += 1
+            # if status not in data:
+            #     data[status] = 1
+            # else:
+            #     data[status] += 1
+            data[status] += 1
 
-        if count >= 9:
-            print("File size: {}".format(size))
-            for key in sorted(data.keys()):
-                if data[key] != 0:
-                    print("{}: {}".format(key, data[key]))
-            count = 0
-        else:
-            count += 1
+            if count >= 9:
+                print("File size: {:d}".format(size))
+                for key in sorted(data.keys()):
+                    if data[key] != 0:
+                        print("{}: {:d}".format(key, data[key]))
+                count = 0
+            else:
+                count += 1
 except Exception:
     pass
 finally:
-    print("File size: {}".format(size))
+    print("File size: {:d}".format(size))
     for key in sorted(data.keys()):
         if data[key] != 0:
-            print("{}: {}".format(key, data[key]))
+            print("{}: {:d}".format(key, data[key]))
 
 # if __name__ == '__main__':
 #     main()
