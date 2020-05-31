@@ -36,7 +36,8 @@ def main():
                 if data[key] != 0:
                     print("{}: {}".format(key, data[key]))
             count = 0
-        count += 1
+        else:
+            count += 1
 
 
 if __name__ == '__main__':
