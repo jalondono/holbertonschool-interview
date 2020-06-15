@@ -7,7 +7,7 @@
 int is_palindrome(unsigned long n)
 {
 	int size = 0;
-	unsigned long array_n[48];
+	unsigned long array_n[11];
 	unsigned long aux_n = n / 10;
 	int i = 0;
 	int j = 0;
