@@ -27,8 +27,5 @@ int is_palindrome(unsigned long n)
 			return (0);
 		j--;
 	}
-	if (size <= 2)
-		return (1);
-
 	return (1);
 }
