@@ -20,8 +20,6 @@ int is_palindrome(unsigned long n)
 		array_n[size] = aux_n % 10;
 		aux_n = aux_n / 10;
 	}
-	if (size <= 2)
-		return (1);
 	j = size;
 	for (i = 0; i <= size / 2; i++)
 	{
@@ -29,5 +27,8 @@ int is_palindrome(unsigned long n)
 			return (0);
 		j--;
 	}
+	if (size <= 2)
+		return (1);
+
 	return (1);
 }
