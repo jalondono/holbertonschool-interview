@@ -1,5 +1,5 @@
-#ifndef _MERGE_H
-#define _MERGE_H
+#ifndef _MENGER_H
+#define _MENGER_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
