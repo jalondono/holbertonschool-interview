@@ -27,7 +27,7 @@ void check_tree(int *array, size_t size_init, size_t size, size_t i)
 		print_array(array, size_init);
 	}
 	else if ((br1 < size) && (br2 < size) &&
-	         (branch2 > branch1 && branch2 > array[i]))
+	(branch2 > branch1 && branch2 > array[i]))
 	{
 		n = array[i];
 		array[i] = branch2;
