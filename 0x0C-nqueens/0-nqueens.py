@@ -57,7 +57,15 @@ def findSolution(board, col, n):
     Helper function to solve the n queen problem using Backtracking
     fins the posibles board to placed all the n queens on it
     in a save places
-
+    Arguments:
+     - board list of list, of size board[n][n]
+        * n number of queens
+     - col columns to check starting on 0 until n to placed
+     - n number of queens to be placed
+    Returns:
+     True or False
+     - True if all the queens are placed on the board
+     - False if a queen can not be placed
     """
 
     if col == n:
@@ -76,7 +84,8 @@ def findSolution(board, col, n):
 if __name__ == "__main__":
     """
     Starting the program
-
+    Take the argumetns from the command line of the form:
+        - nqueens N, where N is the nmbr of queens to be placed
     """
     if not len(sys.argv) == 2:
         print("Usage: nqueens N")
